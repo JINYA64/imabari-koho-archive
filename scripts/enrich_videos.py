@@ -28,7 +28,7 @@ API_KEY = os.environ.get("GEMINI_API_KEY")
 # 2026年9月時点、無料枠のレート制限が緩めな軽量モデル（分類・要約用途には十分）。
 # gemini-2.5-flash-lite: 無料枠 15 RPM / 1,000 RPD
 # 将来モデル名が変わった場合はここを更新する。
-MODEL = "gemini-3.6-flash-lite"
+MODEL = "gemini-3.6-flash"
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
