@@ -26,7 +26,7 @@ from urllib.error import HTTPError, URLError
 
 API_KEY = os.environ.get("GEMINI_API_KEY")
 # 2026年9月時点の軽量・低コストモデル。将来モデル名が変わった場合はここを更新する。
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-3.6-flash"
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
