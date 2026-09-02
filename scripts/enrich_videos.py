@@ -25,8 +25,10 @@ from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
 
 API_KEY = os.environ.get("GEMINI_API_KEY")
-# 2026年9月時点の軽量・低コストモデル。将来モデル名が変わった場合はここを更新する。
-MODEL = "gemini-3.6-flash"
+# 2026年9月時点、無料枠のレート制限が緩めな軽量モデル（分類・要約用途には十分）。
+# gemini-2.5-flash-lite: 無料枠 15 RPM / 1,000 RPD
+# 将来モデル名が変わった場合はここを更新する。
+MODEL = "gemini-2.5-flash-lite"
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
@@ -48,7 +50,7 @@ CATEGORIES = [
     "その他",
 ]
 
-REQUEST_INTERVAL_SEC = 4  # 連続リクエスト間の待機（レート制限対策）
+REQUEST_INTERVAL_SEC = 4.5  # 15 RPM制限(4秒間隔が下限)に対し、安全マージンを取った間隔
 MAX_RETRIES = 5
 
 
