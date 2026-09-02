@@ -26,7 +26,7 @@ from urllib.error import HTTPError, URLError
 
 API_KEY = os.environ.get("GEMINI_API_KEY")
 # 2026年9月時点の軽量・低コストモデル。将来モデル名が変わった場合はここを更新する。
-MODEL = "gemini-3.6-flash"
+MODEL = "gemini-2.5-flash"
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
 
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
@@ -98,6 +98,11 @@ def call_gemini(prompt, retries=MAX_RETRIES):
             if e.code == 429:
                 wait = 20 * (attempt + 1)
                 print(f"  レート制限(429)。{wait}秒待機してリトライします...", file=sys.stderr)
+                time.sleep(wait)
+                continue
+            if e.code in (500, 503, 504):
+                wait = 15 * (attempt + 1)
+                print(f"  サーバー側混雑({e.code})。{wait}秒待機してリトライします...", file=sys.stderr)
                 time.sleep(wait)
                 continue
             print(f"  [HTTPError] status={e.code} body={err_body[:300]}", file=sys.stderr)
