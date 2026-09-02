@@ -1,0 +1,40 @@
+name: Fetch YouTube Playlist Metadata
+
+on:
+  # 手動実行用（動作確認に使います）
+  workflow_dispatch: {}
+  # 定期実行（毎週月曜 6:00 JST = 前日21:00 UTC）
+  schedule:
+    - cron: "0 21 * * 0"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch playlist metadata
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/fetch_playlist.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/videos.json
+          if git diff --cached --quiet; then
+            echo "変更なし、コミットをスキップします"
+          else
+            git commit -m "動画メタデータを更新 ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
