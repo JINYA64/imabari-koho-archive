@@ -34,10 +34,10 @@ API_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
 # 429が出たら上から順に次のモデルを試す（無料枠はモデルごとに別枠のため）。
 # 2026年9月時点のラインナップ。将来モデル名が変わった場合はここを更新する。
 MODELS = [
-    "gemini-2.5-flash-lite",
-    "gemini-2.5-flash",
-    "gemini-2.0-flash-lite",
-    "gemini-2.0-flash",
+    "gemini-3.1-flash-lite",
+    "gemini-3.6-flash",
+    "gemini-3.5-flash-lite",
+    "gemini-3.5-flash",
 ]
 
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
