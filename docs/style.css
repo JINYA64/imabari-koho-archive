@@ -1,0 +1,274 @@
+:root {
+  --color-bg: #FBF8F2;
+  --color-panel: #F1EBDD;
+  --color-ink: #16283A;
+  --color-ink-soft: #4A5A68;
+  --color-sea: #2C6E8E;
+  --color-citrus: #C96A1A;
+  --color-line: #D8D0C0;
+
+  --font-display: "Shippori Mincho", serif;
+  --font-body: "Noto Sans JP", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-sea);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  background: var(--color-ink);
+  color: var(--color-bg);
+  padding: 4rem 1.5rem 3rem;
+}
+
+.hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  font-size: 0.9rem;
+  color: #9FB8C8;
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.35;
+  margin: 0 0 1.25rem;
+}
+
+.hero-lead {
+  max-width: 58ch;
+  font-size: 1rem;
+  color: #D9E2E8;
+  margin: 0 0 2rem;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-stats .stat dt {
+  font-size: 0.8rem;
+  color: #9FB8C8;
+  margin-bottom: 0.25rem;
+}
+
+.hero-stats .stat dd {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-bg);
+}
+
+/* ---------- Controls ---------- */
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1 1 160px;
+}
+
+.control-search {
+  flex: 2 1 240px;
+}
+
+.control-group label {
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+}
+
+.control-group input,
+.control-group select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+.control-group input:focus,
+.control-group select:focus {
+  outline: 2px solid var(--color-sea);
+  outline-offset: 1px;
+}
+
+.result-count {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin: 0 0 0.5rem;
+}
+
+/* ---------- Ledger list ---------- */
+
+.ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.ledger-item {
+  display: grid;
+  grid-template-columns: 3rem 96px 1fr auto;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.ledger-index {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-ink-soft);
+  padding-top: 0.15rem;
+}
+
+.ledger-thumb {
+  width: 96px;
+  height: 54px;
+  object-fit: cover;
+  background: var(--color-panel);
+}
+
+.ledger-body a.ledger-title-link {
+  color: var(--color-ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.ledger-body a.ledger-title-link:hover {
+  color: var(--color-sea);
+  text-decoration: underline;
+}
+
+.ledger-summary {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+  max-width: 56ch;
+}
+
+.ledger-meta {
+  text-align: right;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  color: var(--color-ink-soft);
+}
+
+.ledger-date {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ledger-tag {
+  display: inline-block;
+  border: 1px solid var(--color-citrus);
+  color: var(--color-citrus);
+  font-size: 0.75rem;
+  padding: 0.15rem 0.55rem;
+}
+
+/* ---------- States ---------- */
+
+.empty-state,
+.loading-state {
+  color: var(--color-ink-soft);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  font-size: 0.82rem;
+  color: var(--color-ink-soft);
+}
+
+.site-footer a {
+  color: var(--color-sea);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .ledger-item {
+    grid-template-columns: 2rem 72px 1fr;
+  }
+  .ledger-meta {
+    grid-column: 1 / -1;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+  }
+  .ledger-date {
+    margin-bottom: 0;
+  }
+  .controls {
+    position: static;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
