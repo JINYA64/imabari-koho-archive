@@ -98,8 +98,19 @@ def call_gemini(prompt, retries=MAX_RETRIES):
         except HTTPError as e:
             err_body = e.read().decode("utf-8", errors="ignore")
             if e.code == 429:
+                # Googleのエラー詳細に retryDelay が含まれていれば、それを優先的に使う
                 wait = 20 * (attempt + 1)
-                print(f"  レート制限(429)。{wait}秒待機してリトライします...", file=sys.stderr)
+                try:
+                    err_json = json.loads(err_body)
+                    details = err_json.get("error", {}).get("details", [])
+                    for d in details:
+                        if "retryDelay" in d:
+                            delay_str = d["retryDelay"]  # 例: "43s"
+                            wait = int(re.sub(r"[^0-9]", "", delay_str)) + 2
+                except Exception:
+                    pass
+                print(f"  レート制限(429)。詳細: {err_body[:400]}", file=sys.stderr)
+                print(f"  {wait}秒待機してリトライします...", file=sys.stderr)
                 time.sleep(wait)
                 continue
             if e.code in (500, 503, 504):
