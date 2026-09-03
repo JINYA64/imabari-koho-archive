@@ -15,6 +15,21 @@
     "その他",
   ];
 
+  // 分野ごとのアイコンとアクセントカラー（サイト全体のトーンに合わせた落ち着いた色味）
+  const CATEGORY_META = {
+    "子育て・教育":        { emoji: "🎒", color: "#B3562E" },
+    "防災・インフラ":      { emoji: "🚧", color: "#8C4A5E" },
+    "産業・経済":          { emoji: "⚓", color: "#2C6E8E" },
+    "観光・魅力発信":      { emoji: "🍊", color: "#C96A1A" },
+    "まちづくり・地域振興": { emoji: "🏘", color: "#6B7F3A" },
+    "医療・福祉":          { emoji: "🏥", color: "#4A7A72" },
+    "スポーツ（FC今治等）": { emoji: "⚽", color: "#3F7D4A" },
+    "文化・伝統":          { emoji: "🏮", color: "#A03B3B" },
+    "環境・SDGs":          { emoji: "🌱", color: "#4C8C4A" },
+    "市政運営・行政サービス": { emoji: "🏛", color: "#46607A" },
+    "その他":              { emoji: "📌", color: "#7A7264" },
+  };
+
   const els = {
     jump: document.getElementById("category-jump"),
     content: document.getElementById("overview-content"),
@@ -89,24 +104,57 @@
     const block = document.createElement("div");
     block.className = "topic-block";
 
+    const layout = document.createElement("div");
+    layout.className = "topic-layout";
+
+    const relatedIds = (topic.video_ids || []).filter((id) => videoMap[id]);
+    const leadVideo = relatedIds.length ? videoMap[relatedIds[0]] : null;
+
+    if (leadVideo && leadVideo.thumbnail_url) {
+      const leadWrap = document.createElement("a");
+      leadWrap.className = "topic-lead-thumb";
+      leadWrap.href = leadVideo.video_url;
+      leadWrap.target = "_blank";
+      leadWrap.rel = "noopener";
+      const img = document.createElement("img");
+      img.src = leadVideo.thumbnail_url;
+      img.alt = "";
+      img.loading = "lazy";
+      leadWrap.appendChild(img);
+      layout.appendChild(leadWrap);
+    }
+
+    const textCol = document.createElement("div");
+    textCol.className = "topic-text";
+
     const title = document.createElement("h3");
     title.className = "topic-title";
     title.textContent = topic.topic_title;
-    block.appendChild(title);
+    textCol.appendChild(title);
 
     const overview = document.createElement("p");
     overview.className = "topic-overview";
     overview.textContent = topic.overview;
-    block.appendChild(overview);
+    textCol.appendChild(overview);
 
-    const videosWrap = document.createElement("div");
-    videosWrap.className = "topic-videos";
-    for (const vid of topic.video_ids || []) {
-      const v = videoMap[vid];
-      if (!v) continue;
-      videosWrap.appendChild(renderVideoChip(v));
+    layout.appendChild(textCol);
+    block.appendChild(layout);
+
+    if (relatedIds.length) {
+      const videosWrap = document.createElement("div");
+      videosWrap.className = "topic-videos";
+      const label = document.createElement("span");
+      label.className = "topic-videos-label";
+      label.textContent = "関連する放送回";
+      videosWrap.appendChild(label);
+      const chipsWrap = document.createElement("div");
+      chipsWrap.className = "topic-videos-chips";
+      for (const vid of relatedIds) {
+        chipsWrap.appendChild(renderVideoChip(videoMap[vid]));
+      }
+      videosWrap.appendChild(chipsWrap);
+      block.appendChild(videosWrap);
     }
-    block.appendChild(videosWrap);
 
     return block;
   }
@@ -116,9 +164,17 @@
     section.className = "category-section";
     section.id = slugify(catName);
 
+    const meta = CATEGORY_META[catName] || { emoji: "📌", color: "#7A7264" };
+    section.style.setProperty("--accent", meta.color);
+
     const heading = document.createElement("h2");
     heading.className = "category-section-title";
-    heading.textContent = catName;
+    const iconSpan = document.createElement("span");
+    iconSpan.className = "category-section-icon";
+    iconSpan.textContent = meta.emoji;
+    iconSpan.setAttribute("aria-hidden", "true");
+    heading.appendChild(iconSpan);
+    heading.appendChild(document.createTextNode(catName));
     section.appendChild(heading);
 
     for (const topic of catData.topics || []) {
@@ -144,9 +200,11 @@
 
     const jumpFrag = document.createDocumentFragment();
     for (const cat of orderedCats) {
+      const meta = CATEGORY_META[cat] || { emoji: "📌", color: "#7A7264" };
       const a = document.createElement("a");
       a.href = `#${slugify(cat)}`;
-      a.textContent = cat;
+      a.style.setProperty("--accent", meta.color);
+      a.textContent = `${meta.emoji} ${cat}`;
       jumpFrag.appendChild(a);
     }
     els.jump.appendChild(jumpFrag);
