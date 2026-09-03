@@ -40,10 +40,9 @@ API_KEY = os.environ.get("GEMINI_API_KEY")
 API_BASE = "https://generativelanguage.googleapis.com/v1beta/models"
 
 MODELS = [
-    "gemini-2.5-flash-lite",
-    "gemini-2.5-flash",
-    "gemini-2.0-flash-lite",
-    "gemini-2.0-flash",
+    "gemini-3.5-flash-lite",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
 ]
 
 BASE_DIR = os.path.join(os.path.dirname(__file__), "..")
