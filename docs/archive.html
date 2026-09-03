@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今治市 市政広報番組アーカイブ</title>
+<meta name="description" content="今治市公式YouTubeチャンネルで公開されている市政広報番組「i.i.imabari!」全話を、政策分野やキーワードで検索・閲覧できるアーカイブです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-link">今治市の取り組み紹介</a>
+  <a href="archive.html" class="site-nav-link is-active">全件アーカイブ</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">今治市 公式YouTube「i.i.imabari!」</p>
+    <h1 class="hero-title">市政広報番組<br>アーカイブ</h1>
+    <p class="hero-lead">
+      南海放送が制作・放送している今治市の広報番組を、政策分野や日付から検索・閲覧できるようまとめました。
+      市外の方への発信はもちろん、他自治体の視察資料や、市政の記録としてもご活用いただけます。
+    </p>
+    <dl class="hero-stats">
+      <div class="stat">
+        <dt>収録話数</dt>
+        <dd id="stat-count">—</dd>
+      </div>
+      <div class="stat">
+        <dt>放送期間</dt>
+        <dd id="stat-range">—</dd>
+      </div>
+      <div class="stat">
+        <dt>政策分野</dt>
+        <dd id="stat-categories">—</dd>
+      </div>
+    </dl>
+  </div>
+</header>
+
+<main>
+  <div class="controls" id="controls">
+    <div class="control-group control-search">
+      <label for="search-input">キーワードで探す</label>
+      <input type="text" id="search-input" placeholder="例：防災、しまなみ、子育て支援 など" autocomplete="off">
+    </div>
+    <div class="control-group">
+      <label for="category-select">政策分野</label>
+      <select id="category-select">
+        <option value="">すべて</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="sort-select">並び順</label>
+      <select id="sort-select">
+        <option value="newest">新しい順</option>
+        <option value="oldest">古い順</option>
+      </select>
+    </div>
+  </div>
+
+  <p class="result-count" id="result-count" aria-live="polite"></p>
+
+  <ol class="ledger" id="ledger" aria-label="広報番組一覧"></ol>
+
+  <p class="empty-state" id="empty-state" hidden>
+    該当する番組が見つかりませんでした。検索キーワードを短くするか、分野の絞り込みを解除してお試しください。
+  </p>
+
+  <p class="loading-state" id="loading-state">読み込んでいます…</p>
+</main>
+
+<footer class="site-footer">
+  <p>
+    掲載情報は<a href="https://www.youtube.com/playlist?list=PL1J9vE0-N62iFpbzd-6kJ3gJXg26YNxf1" target="_blank" rel="noopener">今治市公式YouTubeチャンネルの再生リスト</a>をもとに自動生成しています。
+    要約・タグはAIによる自動生成のため、正確な内容は各動画本編でご確認ください。
+  </p>
+  <p id="last-updated"></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
