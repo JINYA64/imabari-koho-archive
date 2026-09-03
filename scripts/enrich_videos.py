@@ -62,6 +62,10 @@ CATEGORIES = [
 REQUEST_INTERVAL_SEC = 4.5  # 成功時、次のリクエストまでの待機（レート制限対策）
 RETRIES_PER_MODEL = 3  # 1モデルあたりの503等リトライ回数（429は即座に次モデルへ）
 
+# プロンプトの内容を変更した際にこの値を上げると、
+# 過去にキャッシュ済みの動画も再処理の対象になる。
+PROMPT_VERSION = 2
+
 
 def build_prompt(title, description):
     cat_list = "\n".join(f"- {c}" for c in CATEGORIES)
@@ -73,7 +77,14 @@ def build_prompt(title, description):
 出力するJSONのキー:
 - "category": 以下のリストから最も当てはまるものを1つだけ選ぶ
 {cat_list}
-- "summary": 番組内容を70〜100文字程度の日本語で要約する（一般市民にもわかる平易な言葉で）
+- "summary": 番組が伝えている「今治市の施策・取り組みの内容」を70〜100文字程度で要約する。
+  この文章だけを読んで、今治市が何を実施した（している）のかが端的に伝わるようにすること。
+  【重要】「〜をご紹介します」「〜をご覧ください」「〜をお伝えします」「〜特集」のような、
+  動画の視聴を前提にした番組アナウンス的な言い回しは絶対に使わないこと。
+  代わりに、今治市が実際に行った施策・事業・取り組みそのものを主語にして、
+  「〜を実施した」「〜を導入している」「〜に取り組んでいる」のように、内容そのものを説明する文章にすること。
+  例（悪い例。使用禁止）：「今治市の子育て支援策についてご紹介します。」
+  例（良い例）：「今治市は0〜2歳児を対象に保育料を無償化し、子育て世帯の経済的負担を軽減している。」
 - "plain_title": 元のタイトルから番組回数表記や過剰な装飾を除いた、15〜25文字程度の簡潔でわかりやすいタイトル
 
 番組タイトル: {title}
@@ -180,7 +191,11 @@ def main():
     enriched_videos = enriched.get("videos", {})
 
     all_videos = source.get("videos", [])
-    to_process = [v for v in all_videos if v["video_id"] not in enriched_videos]
+    to_process = [
+        v for v in all_videos
+        if v["video_id"] not in enriched_videos
+        or enriched_videos[v["video_id"]].get("_prompt_version") != PROMPT_VERSION
+    ]
 
     print(f"全{len(all_videos)}本中、未処理{len(to_process)}本を処理します。")
     print(f"使用モデル（優先順）: {', '.join(MODELS)}")
@@ -203,6 +218,7 @@ def main():
             raw, used_model = call_gemini(prompt)
             parsed = parse_response(raw)
             parsed["_model_used"] = used_model
+            parsed["_prompt_version"] = PROMPT_VERSION
             enriched_videos[vid] = parsed
             processed_count += 1
             model_usage[used_model] = model_usage.get(used_model, 0) + 1
