@@ -20,7 +20,7 @@ from urllib.error import HTTPError, URLError
 
 PLAYLIST_ID = "PL1J9vE0-N62iFpbzd-6kJ3gJXg26YNxf1"
 API_KEY = os.environ.get("YOUTUBE_API_KEY")
-OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "videos.json")
+OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "docs", "data", "videos.json")
 API_BASE = "https://www.googleapis.com/youtube/v3/playlistItems"
 
 
