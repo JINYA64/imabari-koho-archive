@@ -1819,7 +1819,21 @@
       "plain_title": "徳永市長が語る市政方針と今後のまちづくり展望",
       "_model_used": "gemini-3.1-flash-lite",
       "_prompt_version": 3
+    },
+    "X3lCRIElTuM": {
+      "category": "産業・経済",
+      "summary": "人とロボットが共に未来を切り拓く「ロボット未来共創都市」の実現に向け、拠点施設の整備やロボットワークショップ、キッズプログラミング教室などの取り組みを実施しています。",
+      "plain_title": "いまばりロボット未来共創都市宣言と関連事業",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
+    },
+    "DKMcMqit4Mw": {
+      "category": "観光・魅力発信",
+      "summary": "最後の開催を迎えた今治市民のまつり「おんまく」の熱気あふれる2日間の様子や、記憶に残る特別な夏のイベントの魅力を広く発信しています。",
+      "plain_title": "最後の夏を迎えた今治市民のまつり「おんまく」",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-09-03T09:27:06Z"
+  "updated_at": "2026-09-13T22:45:59Z"
 }
