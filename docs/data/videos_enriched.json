@@ -1833,7 +1833,14 @@
       "plain_title": "最後の夏を迎えた今治市民のまつり「おんまく」",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "lpJyDcvsXpU": {
+      "category": "子育て・教育",
+      "summary": "開館100周年を迎えた今治市立図書館において、子どもから大人まで誰もが学び交流できる拠点を目指し、特色ある取り組みや移動図書館によるサービスを展開しています。",
+      "plain_title": "今治市立図書館の多彩な学びと交流の取り組み",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-09-13T22:45:59Z"
+  "updated_at": "2026-09-20T22:51:51Z"
 }
