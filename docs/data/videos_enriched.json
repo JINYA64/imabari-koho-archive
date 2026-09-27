@@ -1840,7 +1840,14 @@
       "plain_title": "今治市立図書館の多彩な学びと交流の取り組み",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "3oJumqqJsVQ": {
+      "category": "まちづくり・地域振興",
+      "summary": "今治市合併20周年を記念して復活した伝統の盆踊りや、地域住民が一体となって創り上げる大西いここい夏祭りの賑わいと会場の様子を広く伝えています。",
+      "plain_title": "大西いここい夏祭りと復活した盆踊り",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-09-20T22:51:51Z"
+  "updated_at": "2026-09-27T23:31:51Z"
 }
