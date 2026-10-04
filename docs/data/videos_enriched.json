@@ -1847,7 +1847,14 @@
       "plain_title": "大西いここい夏祭りと復活した盆踊り",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "r69fnpqGyKw": {
+      "category": "観光・魅力発信",
+      "summary": "瀬戸内を舞台にした映画『汝、星のごとく』の公開に合わせて、今治でのロケ秘話や地域の盛り上がりを紹介するとともに、映画の魅力発信や特設サイトの開設、特集号の広報誌郵送を実施しています。",
+      "plain_title": "映画「汝、星のごとく」公開記念ロケ地と地域の魅力",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-09-27T23:31:51Z"
+  "updated_at": "2026-10-04T23:45:35Z"
 }
