@@ -1854,7 +1854,14 @@
       "plain_title": "映画「汝、星のごとく」公開記念ロケ地と地域の魅力",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "ktioPABtY8E": {
+      "category": "子育て・教育",
+      "summary": "児童生徒が英語を体験できるイングリッシュステイキャンプや指導者のスキルアップ研修会を通じて、世界を見据えた先進的な英語教育の現場を展開し、グローバル人材の育成を推進しています。",
+      "plain_title": "ENGLISH STAY CAMPと英語教育研修",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-10-04T23:45:35Z"
+  "updated_at": "2026-10-12T00:08:11Z"
 }
