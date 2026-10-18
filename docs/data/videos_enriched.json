@@ -1861,7 +1861,14 @@
       "plain_title": "ENGLISH STAY CAMPと英語教育研修",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "Uj-Ek18acWs": {
+      "category": "スポーツ（FC今治等）",
+      "summary": "世界で戦う地元のトップアスリートやジュニアアスリートの挑戦に密着し、アームレスリングやローイング競技など世界を目指す選手たちの活動を通じて地域のスポーツ振興と魅力発信を図っています。",
+      "plain_title": "世界で戦う今治のトップアスリートたち",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-10-12T00:08:11Z"
+  "updated_at": "2026-10-18T22:42:00Z"
 }
