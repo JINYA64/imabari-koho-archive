@@ -1868,7 +1868,14 @@
       "plain_title": "世界で戦う今治のトップアスリートたち",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "X8Ex6oQq0dg": {
+      "category": "防災・インフラ",
+      "summary": "持続可能な公共交通を目指し、市民の快適な移動を支える独自のタクシーアプリ「今治タクシー」の運用を開始しています。地域の実情にあわせた新しい交通システムを導入し、利便性の向上を図っています。",
+      "plain_title": "持続可能な公共交通「今治タクシー」の運用開始",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-10-18T22:42:00Z"
+  "updated_at": "2026-10-25T22:58:30Z"
 }
