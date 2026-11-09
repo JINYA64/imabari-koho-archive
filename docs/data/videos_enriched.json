@@ -1882,7 +1882,14 @@
       "plain_title": "今治版ネウボラ拠点施設が本格始動！子育て支援の取り組み",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "_ByPcrmuymA": {
+      "category": "まちづくり・地域振興",
+      "summary": "中心市街地のシンボルストリートである広小路において社会実験を実施しています。通行方法の変更などを検証しながら、市民とともに未来のまちのあり方や新しい街並みづくりを考えています。",
+      "plain_title": "広小路社会実験：中心市街地のまちづくり",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-11-02T00:06:59Z"
+  "updated_at": "2026-11-09T00:25:15Z"
 }
