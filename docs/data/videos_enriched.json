@@ -1889,7 +1889,14 @@
       "plain_title": "広小路社会実験：中心市街地のまちづくり",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "1tGMMDHFHAI": {
+      "category": "観光・魅力発信",
+      "summary": "多様な視点や多彩なアイデアを活用して地域の魅力を映像で発信する「CREATORS' CAMP」を開催し、新しい広報戦略に基づくPR映像を制作・発表しています。",
+      "plain_title": "今治の魅力を映像発信するクリエイターズキャンプ",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-11-09T00:25:15Z"
+  "updated_at": "2026-11-16T00:36:12Z"
 }
