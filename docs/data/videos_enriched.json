@@ -1896,7 +1896,14 @@
       "plain_title": "今治の魅力を映像発信するクリエイターズキャンプ",
       "_model_used": "gemini-3.5-flash-lite",
       "_prompt_version": 3
+    },
+    "Gj3YPM01s2U": {
+      "category": "子育て・教育",
+      "summary": "高校生の主体的な企画によるイベント「いまここ青春祭」を開催し、若者たちの夢が詰まったステージや活動の記録を通じて、地域の活性化と青春の姿を発信しています。",
+      "plain_title": "高校生のやりたいを形に「いまここ青春祭」",
+      "_model_used": "gemini-3.5-flash-lite",
+      "_prompt_version": 3
     }
   },
-  "updated_at": "2026-11-16T00:36:12Z"
+  "updated_at": "2026-11-23T01:19:06Z"
 }
